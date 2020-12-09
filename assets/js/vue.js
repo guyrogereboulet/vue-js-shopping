@@ -1,6 +1,6 @@
  
  const Home = {
-     template : '<h1>Home</h1>',
+     template : '#home',
      name: 'Home'
  }
 
