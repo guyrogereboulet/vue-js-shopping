@@ -19,7 +19,13 @@ const products = [
  
  const Home = {
      template : '#home',
-     name: 'Home'
+     name: 'Home',
+     data: () => {
+         return {
+             products,
+             
+         }
+     },
  }
 
  const UserSettings = {
