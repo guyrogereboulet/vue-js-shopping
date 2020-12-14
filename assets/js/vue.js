@@ -24,6 +24,7 @@ const products = [
          return {
              products,
              searchKey: '',
+             liked: []
              
          }
      },
@@ -35,9 +36,27 @@ const products = [
                 return product.description.toLowerCase().includes(this.searchKey.toLowerCase());
 
             })
+        },
+        getLikeCookies() {
+            let cookieValue = JSON.parse($cookies.get('liked'));
+            cookieValue == null ? this.liked = [] :this.liked = cookieValue
         }
 
      },
+
+     methods: {
+         setLikeCookie() {
+             document.addEventListener('input', ()=> {
+
+                setTimeout(() => {
+
+                    $cookies.set('like', JSON.stringify(this.liked));
+
+                }, 300);  
+             })
+         }
+
+     }
  }
 
  const UserSettings = {
