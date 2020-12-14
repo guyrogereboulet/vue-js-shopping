@@ -23,9 +23,14 @@ const products = [
      data: () => {
          return {
              products,
+             searchKey: '',
              
          }
      },
+
+     computed:{
+
+     }
  }
 
  const UserSettings = {
