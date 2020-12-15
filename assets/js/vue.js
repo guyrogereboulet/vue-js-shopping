@@ -47,14 +47,15 @@ const products = [
      methods: {
          setLikeCookie() {
              document.addEventListener('input', ()=> {
-
                 setTimeout(() => {
-
                     $cookies.set('like', JSON.stringify(this.liked));
-
                 }, 300);  
              })
          }
+
+     },
+     mounted: () => {
+         this.getLikeCookies;
 
      }
  }
