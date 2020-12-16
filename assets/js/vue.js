@@ -37,8 +37,8 @@ const products = [
 
             })
         },
-        getLikeCookies() {
-            let cookieValue = JSON.parse($cookies.get('liked'));
+        getLikeCookie() {
+            let cookieValue = JSON.parse($cookies.get('like'));
             cookieValue == null ? this.liked = [] :this.liked = cookieValue
         }
 
@@ -46,7 +46,7 @@ const products = [
 
      methods: {
          setLikeCookie() {
-             document.addEventListener('input', ()=> {
+             document.addEventListener('input', () => {
                 setTimeout(() => {
                     $cookies.set('like', JSON.stringify(this.liked));
                 }, 300);  
@@ -55,7 +55,7 @@ const products = [
 
      },
      mounted: () => {
-         this.getLikeCookies;
+         this.getLikeCookie;
 
      }
  }
