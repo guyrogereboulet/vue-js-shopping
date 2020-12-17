@@ -29,7 +29,7 @@ const products = [
          }
      },
      computed:{
-
+        //Filtro i dati
         filteredList() {
             return this.products.filter((product) => {
 
@@ -37,13 +37,14 @@ const products = [
 
             })
         },
+        //Ottengo i cookies
         getLikeCookie() {
             let cookieValue = JSON.parse($cookies.get('like'));
             cookieValue == null ? this.liked = [] :this.liked = cookieValue
         }
 
      },
-
+     //Imposto i cookies
      methods: {
          setLikeCookie() {
              document.addEventListener('input', () => {
