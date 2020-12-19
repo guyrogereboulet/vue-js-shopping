@@ -24,7 +24,8 @@ const products = [
          return {
              products,
              searchKey: '',
-             liked: []
+             liked: [],
+             cart: []
              
          }
      },
@@ -51,6 +52,15 @@ const products = [
                 setTimeout(() => {
                     $cookies.set('like', JSON.stringify(this.liked));
                 }, 300);  
+             })
+         },
+         addToCart(product){
+             this.cart.push({
+                 id: product.id,
+                 img: product.img,
+                 description: product.description,
+                 price: product.price,
+                 quantity: 1
              })
          }
 

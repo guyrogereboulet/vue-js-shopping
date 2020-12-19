@@ -32,7 +32,7 @@
 				<li>
 					<router-link to="/wish-list">
 					<i class="fas fa-heart"></i>
-					<span id="nav-notif"></span>
+					<span id="nav-not"></span>
 					</router-link>
 				</li>
 				<li>
@@ -89,7 +89,7 @@
 									</div>
 
 									<div class="add-to-cart">
-										<button>
+										<button v-on:click='addToCart(product)'>
 											<i class="fas fa-shopping-cart"></i>
 										</button>
 									</div>
@@ -101,9 +101,30 @@
 								<h3>Désolé</h3>
 								<p>Aucun résultat trouvé</p>
 							</div>
-
-							
 						</div>
+
+						<!-- cart display -->
+						<div v-if='cart.length > 0'  class="shopping-cart" id='shopping-cart'>
+
+							<div class="item-group">
+
+								<h2>Panier</h2>
+
+								<div v-for='product in cart' class='item'>
+									<div class="img-container">
+										<img v-bind:src="product.img" alt="">
+									</div>
+									<div class="item-description">
+										<h4>{{product.description}}</h4>
+										<p>{{product.price}}€</p>
+									</div>
+								</div>
+
+							</div>
+							
+
+						</div>
+
 
 					</div>
 
