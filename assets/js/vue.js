@@ -55,6 +55,12 @@ const products = [
              })
          },
          addToCart(product){
+            //Se già esiste nell'array
+            for (let i = 0; i < this.cart.length; i++) {
+                if(this.cart[i].id === product.id) {
+                    return this.cart[i].quantity++
+                }
+            }
              this.cart.push({
                  id: product.id,
                  img: product.img,
