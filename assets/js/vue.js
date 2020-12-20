@@ -53,7 +53,7 @@ const products = [
                     $cookies.set('like', JSON.stringify(this.liked));
                 }, 300);  
              })
-         },
+         },//Aggiungo un prodotto al carrello
          addToCart(product){
             //Se già esiste nell'array
             for (let i = 0; i < this.cart.length; i++) {
@@ -68,7 +68,17 @@ const products = [
                  price: product.price,
                  quantity: 1
              })
+         },
+         //Aggiungo un item
+         caryPlusOne(product){
+             product.quantity = product.quantity + 1;
+         },
+         //Rimuovo un item
+         cartRemoveItem(id) {
+             this.$delete(this.cart, id)
          }
+
+
 
      },
      mounted: () => {
