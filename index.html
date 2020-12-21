@@ -104,47 +104,53 @@
 						</div>
 
 						<!-- cart display -->
-						<div v-if='cart.length > 0'  class="shopping-cart" id='shopping-cart'>
 
-							<div class="item-group">
+						<transition name ="cart-anim">
 
-								<h2>Panier</h2>
+									<div v-if='cart.length > 0'  class="shopping-cart" id='shopping-cart'>
 
-								<div v-for='product, id in cart' class='item' v-bind:key="product.id">
-									<div class="img-container">
-										<img v-bind:src="product.img" alt="">
-									</div>
-									<div class="item-description">
-										<h4>{{product.description}}</h4>
-										<p>{{product.price}}€</p>
-									</div>
+										<h2>Panier</h2>
 
-									<div class="item-quantity">
-										<h6>quantité : {{product.quantity}}</h6>
+										<transition-group name="item-anim" tag="div"class="item-group">
 
-											<div class="cart-icons">
-												<button v-on:click="caryPlusOne(product)">
-													<i class="fa fa-plus"></i>
-												</button>
-												<button v-on:click="cartMinusOne(product, id)">
-													<i class="fa fa-minus"></i>
-												</button>
-												<button @click = "cartRemoveItem(id)"><i class="fa fa-trash"></i>
-												</button>
+											
+
+											<div v-for='product, id in cart' class='item' v-bind:key="product.id">
+
+												<div class="img-container">
+													<img v-bind:src="product.img" alt="">
+												</div>
+												<div class="item-description">
+													<h4>{{product.description}}</h4>
+													<p>{{product.price}}€</p>
+												</div>
+
+												<div class="item-quantity">
+													<h6>quantité : {{product.quantity}}</h6>
+
+														<div class="cart-icons">
+															<button v-on:click="caryPlusOne(product)">
+																<i class="fa fa-plus"></i>
+															</button>
+															<button v-on:click="cartMinusOne(product, id)">
+																<i class="fa fa-minus"></i>
+															</button>
+															<button @click = "cartRemoveItem(id)"><i class="fa fa-trash"></i>
+															</button>
+														</div>
+												</div>
 											</div>
+										</transition-group>
+										<div class="grand-total">
+											<div class="total">
+												<h2>Total</h2>
+												<h2>{{ cartTotalAmount}}€</h2>
+											</div>
+											<h6>Total articles : {{itemTotalAmount}} </h6>
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="grand-total">
-								<div class="total">
-									<h2>Total</h2>
-									<h2>{{ cartTotalAmount}}€</h2>
-								</div>
-								<h6>Total articles : {{itemTotalAmount}} </h6>
-							</div>
-							
 
-						</div>
+					    </transition>
 
 
 					</div>
