@@ -46,8 +46,8 @@ const products = [
 
         cartTotalAmount(){
             let total = 0;
-            for (let item in this.) {
-                total = 
+            for (let item in this.cart) {
+                total = total + (this.cart[item].quantity * this.cart[item].price)
             }
 
             return total;
