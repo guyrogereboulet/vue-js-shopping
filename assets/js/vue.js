@@ -51,6 +51,15 @@ const products = [
             }
 
             return total;
+        },
+
+        itemTotalAmount() {
+           let itemTotal = 0;
+           for  (let item in this.cart) {
+               itemTotal = itemTotal + (this.cart[item].quantity);
+           }
+           return itemTotal;
+
         }
 
      },
