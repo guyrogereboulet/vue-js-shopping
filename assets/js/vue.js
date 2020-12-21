@@ -42,6 +42,15 @@ const products = [
         getLikeCookie() {
             let cookieValue = JSON.parse($cookies.get('like'));
             cookieValue == null ? this.liked = [] :this.liked = cookieValue
+        },
+
+        cartTotalAmount(){
+            let total = 0;
+            for (let item in this.) {
+                total = 
+            }
+
+            return total;
         }
 
      },
@@ -72,6 +81,15 @@ const products = [
          //Aggiungo un item
          caryPlusOne(product){
              product.quantity = product.quantity + 1;
+         },
+
+         cartMinusOne(product, id) {
+             if (product.quantity == 1) {
+                 this.cartRemoveItem(id);
+             } else {
+                 product.quantity = product.quantity - 1;
+             }
+
          },
          //Rimuovo un item
          cartRemoveItem(id) {

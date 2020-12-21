@@ -126,7 +126,7 @@
 												<button v-on:click="caryPlusOne(product)">
 													<i class="fa fa-plus"></i>
 												</button>
-												<button>
+												<button v-on:click="cartMinusOne(product, id)">
 													<i class="fa fa-minus"></i>
 												</button>
 												<button @click = "cartRemoveItem(id)"><i class="fa fa-trash"></i>
@@ -140,6 +140,12 @@
 
 								</div>
 
+							</div>
+							<div class="grand-total">
+								<div class="total">
+									<h2>Total</h2>
+									<h2>{{ cartTotalAmount}}€</h2>
+								</div>
 							</div>
 							
 
